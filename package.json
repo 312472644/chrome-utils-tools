@@ -1,0 +1,19 @@
+{
+  "name": "chrome-utils",
+  "version": "1.0.0",
+  "description": "chrome-utils project",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup --config rollup.config.js"
+  },
+  "author": "sugar",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "babel-preset-latest": "^6.24.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "dependencies": {}
+}
