@@ -11,7 +11,7 @@ const chromeTab = {
         this.getCurrentTab((tabs) => {
             const tabId = tabs.id;
             // chrome.tabs.sendMessage(tabId, { action: 'screenshot', param: chrome.tabs.captureVisibleTab });
-            const currentWindowId = windowId || tabs[0].windowId;
+            const currentWindowId = windowId || tabs.windowId;
             chrome.tabs.captureVisibleTab(currentWindowId, options, (imageUrl) => {
                 const linkDom = document.createElement('a');
                 linkDom.href = imageUrl;
