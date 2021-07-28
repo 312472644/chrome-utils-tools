@@ -29,9 +29,6 @@ chromeUtils.chromeTab.getCurrentTab((tabs)=>{
 | 方法名称         | 描述         | 所属对象   | 参数                                                         | 返回结果       |
 | ---------------- | ------------ | ---------- | :----------------------------------------------------------- | -------------- |
 | createChromeMenu | 创建右键菜单 | chromeMenu | function(createMenuProperties:IMenu,callback:()=>void):number | 创建菜单menuId |
-|                  |              |            |                                                              |                |
-|                  |              |            |                                                              |                |
-|                  |              |            |                                                              |                |
 
 #### 对象描述
 
@@ -41,7 +38,7 @@ createMenuProperties 创建菜单参数
 // 创建菜单选项
 interface IMenu {
     type?:'normal' | 'checkbox' | 'radio' | 'separator'; // 右键菜单类型。默认为'normal'
-	title?:string; // 右键菜单显示的文字。除非为“separator”类型，否则此参数是必须的。如果类型为"selection"，您可以在字符串中使用%s(占位符)显示选定的文本。
+    title?:string; // 右键菜单显示的文字。除非为“separator”类型，否则此参数是必须的。如果类型为"selection"，您可以在字符串中使用%s(占位符)显示选定的文本。
     checked?:boolean; // Checkbox或者radio的初始状态
     contexts?:'all' | 'page' | 'frame' | 'selection' | 'link' | 'editable' | 'image' | 'video' | 'aduio'; // 右键菜单项将会在这个列表指定的上下文类型中显示。默认为“page”。
     onclick?:(info:IMenuInfo,tab:ITab) => void; // 当菜单项被点击时触发的函数
