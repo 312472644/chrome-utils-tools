@@ -2,7 +2,7 @@
   "name": "chrome-utils",
   "version": "1.0.0",
   "description": "chrome-utils project",
-  "main": "index.js",
+  "main": "./dist/chrome_utils.min.js",
   "scripts": {
     "build": "rollup --config rollup.config.js"
   },

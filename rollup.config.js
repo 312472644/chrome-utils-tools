@@ -5,7 +5,7 @@ import babel from 'rollup-plugin-babel';
 export default {
     input: './utils/index.js',
     output: {
-        file: './dist/dist.min.js',
+        file: './dist/chrome_utils.min.js',
         format: 'umd',
         name: 'chromeUtils'
     },
