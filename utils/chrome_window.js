@@ -39,7 +39,7 @@ const chromeWindow = {
    * 关闭当前窗口之外的所有窗口
    *
    */
-  removeWindowExcludeCurrent() {
+   removeOtherWindow() {
     chrome.windows.getAll({}, (callback) => {
       this.getCurrentWindow((window) => {
         const currentWindowId = window.id;
