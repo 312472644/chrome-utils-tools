@@ -243,3 +243,4 @@ interface IStorageChange {
     namespace: 'sync' | 'local' // 存储类型
 }
 ```
+	
