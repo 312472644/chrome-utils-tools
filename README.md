@@ -26,51 +26,45 @@ chromeUtils.chromeTab.getCurrentTab((tabs)=>{
 
 #### API
 
-tips:<font color=blue>Event表示事件，如果没有特殊说明一般就是指方法。</font>
+tips:<font color=#c41d7f>Event</font><font color=blue>表示事件，如果没有特殊说明一般就是指方法。</font>
 
-| 方法名称                                              | 描述                                     | 所属对象           | 参数                                                         |
-| ----------------------------------------------------- | ---------------------------------------- | ------------------ | :----------------------------------------------------------- |
-| createChromeMenu                                      | 创建右键菜单                             | chromeMenu         | function(menu:<font color=#08979c>IMenu</font>,callback:() => void):<font color=#2f54ebc>number</font> |
-| updateChromeMenu                                      | 更新右键菜单                             | chromeMenu         | function(menuId:<font color=#2f54eb>number</font>,menu:<font color=#08979c>IMenu</font>,callback:() => void) |
-| removeChromeMenu                                      | 删除右键菜单                             | chromeMenu         | function(menuId:<font color=#2f54eb>number</font>,callback:() => void) |
-| removeChromeAllMenu                                   | 删除所有右键菜单                         | chromeMenu         | function(callback:() => void)                                |
-|                                                       |                                          |                    |                                                              |
-| getCookie                                             | 获取条件匹配cookie信息                   | chromeCookie       | function(details:<font color=#08979c>IGetCookie</font>,callback:(cookie:<font color=#08979c>ICookie</font>) => void) |
-| getAllCookie                                          | 获取条件匹配所有cookie信息               | chromeCookie       | function(details:IGetAllCookie,callback:(cookie:<font color=#08979c>ICookie</font>) => void) |
-| setCookie                                             | 设置cookie信息                           | chromeCookie       | function(details:<font color=#08979c>ICookie</font>)         |
-| removeCookie                                          | 删除cookie信息                           | chromeCookie       | function(details:<font color=#08979c>IGetCookie</font>)      |
-| cookieChangeEvent <font color=#c41d7f>Event</font>    | cookie被更改时触发的事件                 | chromeCookie       | function(changeInfo:<font color=#08979c>IChangeCookie</font>) |
-|                                                       |                                          |                    |                                                              |
-| captureVisibleTab                                     | 可视区域截图                             | chromeTab          | function(windowId?:<font color=#2f54eb>number</font>,options?:<font color=#08979c>IOptions</font>,callback:(dataUrl:<font color=#2f54eb>string</font>) => void) |
-| createTab                                             | 创建选项卡                               | chromeTab          | function(createTab:<font color=#08979c>ICreateTab</font>,callback:(tab:<font color=#08979c>ITab</font>) => void) |
-| removeTab                                             | 删除选项卡                               | chromeTab          | function(tabId:<font color=#2f54eb>number</font>,callback:() => void) |
-| executeScriptOrCss                                    | 动态执行js或css文件                      | chromeTab          | function(tabId:<font color=#2f54eb>number</font>,details:<font color=#08979c>IExecute</font>,type:<font color=#08979c>ExecuteTypeEnum</font>,callback:() => void) |
-| getAllInTabs                                          | 获取指定窗口所有选项卡信息，默认当前窗口 | chromeTab          | function(windowId?:<font color=#2f54eb>number</font>,callback:(tabs:<font color=#08979c>ITab</font>[]) = > void) |
-| getCurrentTab                                         | 获取当前选项卡                           | chromeTab          | function(callback:(tab:<font color=#08979c>ITab</font>) => void) |
-| removeTabEvent <font color=#c41d7f>Event</font>       | 关闭选项卡触发事件                       | chromeTab          | function(tabId:<font color=#2f54eb>number</font>,removeInfo:<font color=#08979c>{isWindowClosing:boolean}</font>) |
-| selectTabChangeEvent <font color=#c41d7f>Event</font> | 选项卡改变时触发事件                     | chromeTab          | function(tabId:<font color=#2f54eb>number</font>,selectInfo:<font color=#08979c>{windowId:number}</font>) |
-|                                                       |                                          |                    |                                                              |
-| createWindow                                          | 创建窗口                                 | chromeWindow       | function(details:<font color=#08979c>ICreateWindow</font>,callback:(window:<font color=#08979c>IWindow</font>) => void) |
-| getCurrentWindow                                      | 获取当前窗口                             | chromeWindow       | function(callback:(window:<font color=#08979c>IWindow</font>) => void) |
-| removeWindow                                          | 删除窗口                                 | chromeWindow       | function(windowId:<font color=#2f54eb>number</font>,callback:() => void) |
-| removeOtherWindow                                     | 删除其他窗口                             | chromeWindow       | function()                                                   |
-| createWindowEvent <font color=#c41d7f>Event</font>    | 创建窗口触发事件                         | chromeWindow       | function(window:<font color=#08979c>IWindow</font>)          |
-| removeWindowEvent <font color=#c41d7f>Event</font>    | 关闭窗口触发事件                         | chromeWindow       | function(windowId:<font color=#2f54eb>number</font>)         |
-|                                                       |                                          |                    |                                                              |
-| sendNotification                                      | 桌面消息推送                             | chromeNotification | function(title:<font color=#2f54eb>string</font>,options?:<font color=#08979c>INotification</font>) |
-|                                                       |                                          |                    |                                                              |
-| sendMessage                                           | 发送消息                                 | chromeMessage      | function(message:<font color=#2f54eb>object</font>,callback:() => <font color=#2f54eb>void</font>) |
-| onMessage                                             | 接受消息                                 | chromeMessage      | function(callback: (message:<font color=#08979c>IMessage</font>) => void) |
-|                                                       |                                          |                    |                                                              |
-| storageSyncSet                                        | 设置同步账户存储信息                     | chromeStorage      | function(storage:<font color=#2f54eb>object</font>,callback:() => void) |
-| storageSyncGet                                        | 获取同步账户存储信息                     | chromeStorage      | function(key:<font color=#2f54eb>string</font>,callback:() => void) |
-| storageSyncRemove                                     | 删除同步账户存储信息                     | chromeStorage      | function(key:<font color=#2f54eb>string</font>,callback:() => void) |
-| storageSyncClear                                      | 删除所有同步账户存储信息                 | chromeStorage      | function(callback:() => void)                                |
-| storageLocalSet                                       | 设置本地存储信息                         | chromeStorage      | function(storage:<font color=#2f54eb>object</font>,callback:() => void) |
-| storageLocalGet                                       | 获取本地存储信息                         | chromeStorage      | function(key:<font color=#2f54eb>string</font>,callback:() => void) |
-| storageLocalRemove                                    | 删除本地存储信息                         | chromeStorage      | function(key:<font color=#2f54eb>string</font>,callback:() => void) |
-| storageLocalClear                                     | 删除所有本地存储信息                     | chromeStorage      | function(callback:() => void)                                |
-| storageChangeEvent <font color=#c41d7f>Event</font>   | 存储值发生改变触发事件                   | chromeStorage      | function(callback:(storage:<font color=#08979c>IStorageChange</font>) => void) |
+| 方法名称                                        | 描述                                     | 所属对象           | 参数                                                         |
+| ----------------------------------------------- | ---------------------------------------- | ------------------ | :----------------------------------------------------------- |
+| createChromeMenu                                | 创建右键菜单                             | chromeMenu         | function(menu:<font color=#08979c>IMenu</font>,callback:() => void):<font color=#2f54ebc>number</font> |
+| updateChromeMenu                                | 更新右键菜单                             | chromeMenu         | function(menuId:<font color=#2f54eb>number</font>,menu:<font color=#08979c>IMenu</font>,callback:() => void) |
+| removeChromeMenu                                | 删除右键菜单                             | chromeMenu         | function(menuId:<font color=#2f54eb>number</font>,callback:() => void) |
+| removeChromeAllMenu                             | 删除所有右键菜单                         | chromeMenu         | function(callback:() => void)                                |
+| getCookie                                       | 获取条件匹配cookie信息                   | chromeCookie       | function(details:<font color=#08979c>IGetCookie</font>,callback:(cookie:<font color=#08979c>ICookie</font>) => void) |
+| getAllCookie                                    | 获取条件匹配所有cookie信息               | chromeCookie       | function(details:IGetAllCookie,callback:(cookie:<font color=#08979c>ICookie</font>) => void) |
+| setCookie                                       | 设置cookie信息                           | chromeCookie       | function(details:<font color=#08979c>ICookie</font>)         |
+| removeCookie                                    | 删除cookie信息                           | chromeCookie       | function(details:<font color=#08979c>IGetCookie</font>)      |
+| <font color=#c41d7f>cookieChangeEvent</font>    | cookie被更改时触发的事件                 | chromeCookie       | function(changeInfo:<font color=#08979c>IChangeCookie</font>) |
+| captureVisibleTab                               | 可视区域截图                             | chromeTab          | function(windowId?:<font color=#2f54eb>number</font>,options?:<font color=#08979c>IOptions</font>,callback:(dataUrl:<font color=#2f54eb>string</font>) => void) |
+| createTab                                       | 创建选项卡                               | chromeTab          | function(createTab:<font color=#08979c>ICreateTab</font>,callback:(tab:<font color=#08979c>ITab</font>) => void) |
+| removeTab                                       | 删除选项卡                               | chromeTab          | function(tabId:<font color=#2f54eb>number</font>,callback:() => void) |
+| executeScriptOrCss                              | 动态执行js或css文件                      | chromeTab          | function(tabId:<font color=#2f54eb>number</font>,details:<font color=#08979c>IExecute</font>,type:<font color=#08979c>ExecuteTypeEnum</font>,callback:() => void) |
+| getAllInTabs                                    | 获取指定窗口所有选项卡信息，默认当前窗口 | chromeTab          | function(windowId?:<font color=#2f54eb>number</font>,callback:(tabs:<font color=#08979c>ITab</font>[]) = > void) |
+| getCurrentTab                                   | 获取当前选项卡                           | chromeTab          | function(callback:(tab:<font color=#08979c>ITab</font>) => void) |
+| <font color=#c41d7f>removeTabEvent</font>       | 关闭选项卡触发事件                       | chromeTab          | function(tabId:<font color=#2f54eb>number</font>,removeInfo:<font color=#08979c>{isWindowClosing:boolean}</font>) |
+| <font color=#c41d7f>selectTabChangeEvent</font> | 选项卡改变时触发事件                     | chromeTab          | function(tabId:<font color=#2f54eb>number</font>,selectInfo:<font color=#08979c>{windowId:number}</font>) |
+| createWindow                                    | 创建窗口                                 | chromeWindow       | function(details:<font color=#08979c>ICreateWindow</font>,callback:(window:<font color=#08979c>IWindow</font>) => void) |
+| getCurrentWindow                                | 获取当前窗口                             | chromeWindow       | function(callback:(window:<font color=#08979c>IWindow</font>) => void) |
+| removeWindow                                    | 删除窗口                                 | chromeWindow       | function(windowId:<font color=#2f54eb>number</font>,callback:() => void) |
+| removeOtherWindow                               | 删除其他窗口                             | chromeWindow       | function()                                                   |
+| <font color=#c41d7f>createWindowEvent</font>    | 创建窗口触发事件                         | chromeWindow       | function(window:<font color=#08979c>IWindow</font>)          |
+| <font color=#c41d7f>removeWindowEvent</font>    | 关闭窗口触发事件                         | chromeWindow       | function(windowId:<font color=#2f54eb>number</font>)         |
+| sendNotification                                | 桌面消息推送                             | chromeNotification | function(title:<font color=#2f54eb>string</font>,options?:<font color=#08979c>INotification</font>) |
+| sendMessage                                     | 发送消息                                 | chromeMessage      | function(message:<font color=#2f54eb>object</font>,callback:() => <font color=#2f54eb>void</font>) |
+| onMessage                                       | 接受消息                                 | chromeMessage      | function(callback: (message:<font color=#08979c>IMessage</font>) => void) |
+| storageSyncSet                                  | 设置同步账户存储信息                     | chromeStorage      | function(storage:<font color=#2f54eb>object</font>,callback:() => void) |
+| storageSyncGet                                  | 获取同步账户存储信息                     | chromeStorage      | function(key:<font color=#2f54eb>string</font>,callback:() => void) |
+| storageSyncRemove                               | 删除同步账户存储信息                     | chromeStorage      | function(key:<font color=#2f54eb>string</font>,callback:() => void) |
+| storageSyncClear                                | 删除所有同步账户存储信息                 | chromeStorage      | function(callback:() => void)                                |
+| storageLocalSet                                 | 设置本地存储信息                         | chromeStorage      | function(storage:<font color=#2f54eb>object</font>,callback:() => void) |
+| storageLocalGet                                 | 获取本地存储信息                         | chromeStorage      | function(key:<font color=#2f54eb>string</font>,callback:() => void) |
+| storageLocalRemove                              | 删除本地存储信息                         | chromeStorage      | function(key:<font color=#2f54eb>string</font>,callback:() => void) |
+| storageLocalClear                               | 删除所有本地存储信息                     | chromeStorage      | function(callback:() => void)                                |
+| <font color=#c41d7f>storageChangeEvent</font>   | 存储值发生改变触发事件                   | chromeStorage      | function(callback:(storage:<font color=#08979c>IStorageChange</font>) => void) |
 
 #### 对象描述
 
@@ -243,4 +237,4 @@ interface IStorageChange {
     namespace: 'sync' | 'local' // 存储类型
 }
 ```
-	
+
